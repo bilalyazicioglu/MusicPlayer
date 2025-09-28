@@ -6,8 +6,6 @@ import (
 	"log"
 	"os"
 	"time"
-
-	"github.com/faiface/beep"
 )
 
 func main() {
@@ -22,4 +20,6 @@ func main() {
 	defer streamer.Close()
 
 	speaker.Init(format.SampleRate, format.SampleRate.N(time.Second/10))
+	speaker.Play(streamer)
+	select {}
 }
